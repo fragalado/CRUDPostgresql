@@ -10,13 +10,4 @@ public interface InterfazMenu {
 	 * @return
 	 */
 	public int menu();
-	
-	/**
-	 * Método que preguntara lo que se pasa por parametro
-	 * Si responde que si devuelve true
-	 * Si responde que no devuelve false
-	 * @param txt
-	 * @return
-	 */
-	public boolean preguntaSiNo(String txt);
 }

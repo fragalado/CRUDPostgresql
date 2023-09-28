@@ -33,8 +33,10 @@ public class ImplCRUDsql implements InterfazCRUDsql {
 			// Ahora hacemos el commit
 			conexion.commit();
 			
-			// Cerramos la declaracion
+			// Cerramos la declaracion y la conexion
 			declaracion.close();
+			conexion.close();
+			
 		} catch (SQLException e) {
 			System.err.println("[ERROR-ImplCRUDsql-insertBD] Error " + e.getMessage());
 		}
@@ -59,9 +61,10 @@ public class ImplCRUDsql implements InterfazCRUDsql {
 			// Llamada a la conversion a dto
 			listaLibros = adto.resultsALibrosDto(resultadoConsulta);
 			
-			// Cerramos la declaracion y el resultado
+			// Cerramos la declaracion, el resultado y la conexion
 			declaracion.close();
 			resultadoConsulta.close();
+			conexion.close();
 			
 		} catch (SQLException e) {
 			System.err.println("[ERROR-ImplCRUDsql-selectBD] Error " + e);

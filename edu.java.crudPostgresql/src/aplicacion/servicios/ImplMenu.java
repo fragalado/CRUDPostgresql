@@ -31,22 +31,4 @@ public class ImplMenu implements InterfazMenu {
 		return opcion;
 	}
 
-	@Override
-	public boolean preguntaSiNo(String txt) {
-		
-		// Scanner para leer la opcion
-		Scanner sc = new Scanner(System.in);
-		
-		String opcion;
-		do {
-			System.out.printf("¿%s? [s=Si/n=No]: ", txt);
-			opcion = sc.nextLine();
-			
-			if(opcion.equals("s") || opcion.equals("S"))
-				return true;
-			else if(opcion.equals("n") || opcion.equals("N"))
-				return false;
-		} while (true);
-	}
-
 }

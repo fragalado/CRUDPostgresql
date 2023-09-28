@@ -24,5 +24,26 @@ public class LibroDTO {
 		this.edicion = edicion;
 	}
 	
-	// Getters y Setters -> No tiene
+	// Getters
+	
+	public long getIdLibro() {
+		return idLibro;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public int getEdicion() {
+		return edicion;
+	}
+	
 }

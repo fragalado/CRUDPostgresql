@@ -1,7 +1,6 @@
 package aplicacion.controladores;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,11 +8,9 @@ import java.util.Scanner;
 import aplicacion.dtos.LibroDTO;
 import aplicacion.servicios.ImplCRUDsql;
 import aplicacion.servicios.ImplConexionSQL;
-import aplicacion.servicios.ImplLibroDTO;
 import aplicacion.servicios.ImplMenu;
 import aplicacion.servicios.InterfazCRUDsql;
 import aplicacion.servicios.InterfazConexionSQL;
-import aplicacion.servicios.InterfazLibroDTO;
 import aplicacion.servicios.InterfazMenu;
 
 /**
@@ -36,13 +33,7 @@ public class Menu {
 		// Inicializamos la interfaz CRUD
 		InterfazCRUDsql icsq = new ImplCRUDsql();
 		
-		// Inicializamos la interfaz LibroDTO
-		InterfazLibroDTO intL = new ImplLibroDTO();
-		
 		List<LibroDTO> listaLibros = new ArrayList<LibroDTO>();
-		
-		// Scanner para leer datos
-		Scanner sc = new Scanner(System.in);
 		
 		int opcion;
 		boolean esValido = false;
@@ -54,7 +45,7 @@ public class Menu {
 			try {
 				opcion = intM.menu();
 			} catch (Exception e) {
-				System.err.println("** ERROR: No se ha introducido una opcion correcta **");
+				System.err.println("** [ERROR-main]: No se ha introducido una opcion correcta **");
 			}
 			
 			// Conexion base de datos
@@ -76,7 +67,16 @@ public class Menu {
 				case 1:
 					// Select
 					try {
-						intL.selectLibroDto(c);
+						listaLibros = icsq.selectLibro(c);
+						
+						// Recorremos la lista y mostramos por consola los libros
+						for (LibroDTO aux : listaLibros) {
+							System.out.printf("Id = %s , Titulo = %s, Autor = %s, Isbn = %s, Edicion = %s \n", aux.getIdLibro()
+																										   , aux.getTitulo()
+																										   , aux.getAutor()
+																										   , aux.getIsbn()
+																										   , aux.getEdicion());
+						}
 					} catch (Exception e) {
 						System.err.println("** [ERROR-main] Error no se ha podido hacer el select **");
 					}
@@ -84,21 +84,26 @@ public class Menu {
 				case 2:
 					// Update
 					try {
-						
+						icsq.updateLibro(c);
 					} catch (Exception e) {
-						// TODO: handle exception
+						System.err.println("** [ERROR-main] Error no se ha podido hacer el update **");
 					}
 					break;
 				case 3:
 					// Insert
 					try {
-						intL.insertLibroDto(c);
+						icsq.insertLibro(c);
 					} catch (Exception e) {
 						System.err.println("** [ERROR-main] Error no se ha podido hacer el insert **");
 					}
 					break;
 				case 4:
 					// Delete
+					try {
+						icsq.deleteLibro(c);
+					} catch (Exception e) {
+						System.err.println("** [ERROR-main] Error no se ha podido hacer el delete **");
+					}
 					break;
 					
 				case 0:

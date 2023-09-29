@@ -17,7 +17,7 @@ public class ImplConexionSQL implements InterfazConexionSQL {
 		Connection conexion = null;
 		String[] parametrosConexion = parametrosConexion();
 		
-		if(parametrosConexion != null && !parametrosConexion[1].isEmpty()) {
+		if(!parametrosConexion[1].isEmpty()) {
 			try {
 				// Instancia un objeto de la clase interfaz que se le pasa
 				Class.forName("org.postgresql.Driver");

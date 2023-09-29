@@ -105,15 +105,6 @@ public class Menu {
 						System.err.println("** [ERROR-main] Error no se ha podido hacer el delete **");
 					}
 					break;
-					
-				case 0:
-					// Cerramos la conexion
-					try {
-						c.close();
-					} catch (Exception e) {
-						System.err.println("** [ERROR-main] No se ha podido cerrar la conexion a la bd **");
-					}
-					break;
 				}
 			}
 		} while (opcion != 0);

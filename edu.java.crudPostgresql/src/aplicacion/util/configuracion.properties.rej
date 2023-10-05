@@ -1,8 +1,0 @@
-diff a/edu.java.crudPostgresql/src/aplicacion/util/configuracion.properties b/edu.java.crudPostgresql/src/aplicacion/util/configuracion.properties	(rejected hunks)
-@@ -1,5 +0,0 @@
--user=postgres
--pass=zepxuH-nyzfa5
--port=5432
--host=localhost
--db=gestorBibliotecaPersonal
-\ No newline at end of file

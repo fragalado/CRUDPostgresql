@@ -208,7 +208,7 @@ public class ImplCRUDsql implements InterfazCRUDsql {
 		
 		PreparedStatement declaracion = null;
 		try {
-			// Pedimos el isbn del libro a modificar
+			// Pedimos el isbn del libro a eliminar
 			System.out.print("Introduzca el isbn del libro a eliminar: ");
 			String isbn = sc.nextLine(); // No comprobaremos si el isbn existe o no
 			

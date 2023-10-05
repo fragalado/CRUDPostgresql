@@ -32,7 +32,7 @@ public class ADto {
 			
 			System.out.println("[INFO] - Número de libros: " + listaLibros.size());
 		} catch (SQLException e) {
-			System.err.println("[ERROR-resultsALibrosDto] Error al pasar el ResultSet a lista de LibroDTO " + e);
+			System.err.println("[ERROR-ADto-resultsALibrosDto] Error al pasar el ResultSet a lista de LibroDTO " + e);
 		}
 		
 		return listaLibros; // Devolvemos la lista con los libros

@@ -29,7 +29,7 @@ public class ImplConexionSQL implements InterfazConexionSQL {
 				if(!esValida) {
 					conexion = null;
 				}
-				System.out.println(esValida ? "La conexion es valida" : "[ERROR-conectaBBDD] La conexion no es valida");
+				System.out.println(esValida ? "La conexion es valida" : "[ERROR-ImplConexionSQL-conectaBBDD] La conexion no es valida");
 				return conexion;
 			} catch (ClassNotFoundException e) {
 				System.err.println("[ERROR-ImplConexionSQL-conectaBBDD] La clase no ha sido encontrada " + e);
